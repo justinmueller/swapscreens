@@ -252,6 +252,7 @@
 				28FD40031F6C191C00CB08F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
