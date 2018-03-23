@@ -12,23 +12,32 @@ import Foundation
 var config: CGDisplayConfigRef?
 CGBeginDisplayConfiguration(&config)
 
-// Get the displays
-let maxDisplays: UInt32 = 3
-var screens = [CGDirectDisplayID](repeating: 0, count: Int(maxDisplays))
+// Get the amount of displays
 var displayCount: UInt32 = 0
+CGGetOnlineDisplayList(0, nil, &displayCount)
 
-CGGetOnlineDisplayList(maxDisplays, &screens, &displayCount)
+// Get the display IDs
+var displays = [CGDirectDisplayID](repeating: 0, count: Int(displayCount))
+CGGetOnlineDisplayList(displayCount, &displays, nil)
 
-// Handle the displays
-for currentDisplay in screens {
-    let bounds = CGDisplayBounds(currentDisplay)
-    if Int(bounds.origin.x) == -1920 {
-        CGConfigureDisplayOrigin(config, currentDisplay, 1440, Int32(bounds.origin.y))
-    } else if Int(bounds.origin.x) == 1440 {
-        CGConfigureDisplayOrigin(config, currentDisplay, -1920, Int32(bounds.origin.y))
-    }
-}
+let display1 = displays[0]
+let display2 = displays[1]
+let display1Bounds = CGDisplayBounds(display1)
+let display2Bounds = CGDisplayBounds(display2)
+
+CGConfigureDisplayOrigin(
+	config,
+	display1,
+	Int32(display2Bounds.origin.x),
+	Int32(display2Bounds.origin.y)
+)
+
+CGConfigureDisplayOrigin(
+	config,
+	display2,
+	Int32(display1Bounds.origin.x),
+	Int32(display1Bounds.origin.y)
+)
 
 // Commit the change
-CGCompleteDisplayConfiguration(config, CGConfigureOption.permanently)
-print("Screens have been swapped.")
+CGCompleteDisplayConfiguration(config, .permanently)

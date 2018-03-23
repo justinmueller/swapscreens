@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0566498E20652DCF005B142A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0566498F20652DEC005B142A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		28FD3FFA1F6C191C00CB08F9 /* Swap Screens */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Swap Screens"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FD3FFD1F6C191C00CB08F9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,6 +43,8 @@
 		28FD3FF11F6C191C00CB08F9 = {
 			isa = PBXGroup;
 			children = (
+				0566498F20652DEC005B142A /* .gitignore */,
+				0566498E20652DCF005B142A /* README.md */,
 				28FD3FFC1F6C191C00CB08F9 /* Swap Screens */,
 				28FD3FFB1F6C191C00CB08F9 /* Products */,
 			);
@@ -99,7 +103,7 @@
 				};
 			};
 			buildConfigurationList = 28FD3FF51F6C191C00CB08F9 /* Build configuration list for PBXProject "Swap Screens" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
